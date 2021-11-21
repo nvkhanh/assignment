@@ -34,7 +34,7 @@ class UserDetailView extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: Style.padding20),
         child: Column(
           children: <Widget>[
-            SizedBox(height: 20,),
+            SizedBox(height: Style.padding20,),
             ClipOval(
               child: CachedNetworkImage(imageUrl: user.avatarUrl,fit: BoxFit.cover, width: 200,height: 200,),
             ),
@@ -54,6 +54,14 @@ class UserDetailView extends StatelessWidget {
                       buildRow("Followings", state.user.followings.toString()),
                       // buildRow("Name", controller.userDetail.name),
                     ],
+                  );
+                }else if (state is SearchUserLoadInProgress) {
+                  return Container(
+                    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                    child: CircularProgressIndicator(
+                      color: Colors.green,
+                    ),
                   );
                 }
                 return Container();

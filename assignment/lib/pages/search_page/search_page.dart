@@ -31,7 +31,6 @@ class SearchView extends StatelessWidget {
   SearchView(this.apiProvider);
 
   final TextEditingController searchController = TextEditingController();
-  FocusNode phoneNumberFocusNode = FocusNode();
   Timer _debounce;
   final int _debounceTime = 1000;
   var lastQuery = '';
@@ -139,6 +138,7 @@ class SearchView extends StatelessWidget {
   buildUserItem(BuildContext context, User item) {
     return GestureDetector(
       onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
         Navigator.push(
             context,
             MaterialPageRoute(
@@ -159,6 +159,7 @@ class SearchView extends StatelessWidget {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
+                  SizedBox(width: Style.padding20,),
                   ClipOval(
                     child: CachedNetworkImage(imageUrl: item.avatarUrl,fit: BoxFit.cover, width: 40,height: 40,),
                   ),

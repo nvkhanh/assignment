@@ -16,8 +16,8 @@ class Utils {
                   },
                   child: SizedBox(
                       width: 50,
-                      child: Container(
-                        color: Colors.transparent,
+                      height: 40,
+                      child: Center(
                         child: SvgPicture.asset(
                           'assets/arrow-back.svg',
                           color: Colors.white,
